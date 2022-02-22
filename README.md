@@ -1,2 +1,0 @@
-# students
-List of students
