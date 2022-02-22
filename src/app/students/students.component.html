@@ -1,0 +1,78 @@
+
+<div class="container mt-3" >
+  <h3>Lista de Estudiantes</h3>
+  <hr>
+  <button (click)="open(content)" type="button" class="btn btn-dark">Agregar nuevo estudiante</button>
+
+  <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of students">
+          <th>{{data.id}}</th>
+          <td>{{data.name}}</td>
+          <td>{{data.lastname}}</td>
+          <td>{{data.phone}}</td>
+          <td>
+              <button (click)="open(update); showData(data.id)" type="button" class="btn btn-primary">Editar</button>
+          </td>
+          <td>
+              <button (click)="deleteStudent(data.id)" type="button" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>
+
+<ng-template #content let-modal >
+  <div class="modal-body">
+    <h5>Nuevo estudiante</h5>
+    <hr>
+    <div class="mb-3">
+      <label for="recipient-name" class="col-form-label">Nombre(s):</label>
+      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="data.name" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="mb-3">
+      <label for="recipient-name" class="col-form-label">Apellido(s):</label>
+      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="data.lastname" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="mb-3">
+      <label for="recipient-name" class="col-form-label">Teléfono:</label>
+      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="data.phone" [ngModelOptions]="{standalone: true}">
+    </div>
+
+  </div>
+  <div class="modal-footer d-flex justify-content-around">
+    <button type="button" class="btn btn-danger" style="width: 120px; border-radius: 10px" (click)="addStudent(data)" (click)="modal.close()">Agregar</button>
+  </div>
+</ng-template>
+
+<ng-template #update let-modal >
+  <div class="modal-body">
+    <h5>Actualizar estudiante</h5>
+    <hr>
+    <div class="mb-3">
+      <label for="recipient-name" class="col-form-label">Nombre(s):</label>
+      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="student.name" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="mb-3">
+      <label for="recipient-name" class="col-form-label">Apellido(s):</label>
+      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="student.lastname" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="mb-3">
+      <label for="recipient-name" class="col-form-label">Teléfono:</label>
+      <input type="text" class="form-control" id="recipient-name" [(ngModel)]="student.phone" [ngModelOptions]="{standalone: true}">
+    </div>
+
+  </div>
+  <div class="modal-footer d-flex justify-content-around">
+    <button type="button" class="btn btn-danger" style="width: 120px; border-radius: 10px" (click)="updateStudent(data)" (click)="modal.close()" >Actualizar</button>
+  </div>
+</ng-template>
