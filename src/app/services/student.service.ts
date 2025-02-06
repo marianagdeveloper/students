@@ -8,15 +8,15 @@ export class StudentService {
   public students: Students[] = [
     {
       id: 1,
-      name: 'Mariana',
-      lastname: 'Guanda',
-      phone: '9999',
+      name: 'Pedro',
+      lastname: 'Pérez',
+      phone: '0412-5555555',
     },
     {
       id: 2,
-      name: 'Mario',
+      name: 'Ana Blanco',
       lastname: 'Guanda',
-      phone: '9999',
+      phone: '0416-7774455',
     },
   ];
 
